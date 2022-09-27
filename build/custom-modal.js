@@ -32,12 +32,12 @@ const Modal = styled.div `
   width: 300px;
   height: 200px;
 `;
-export const CustomModal = ({ text }) => {
+export const CustomModal = ({ text, id }) => {
     const handleClick = (e) => {
         const target = e.target;
         target.parentElement.style.display = 'none';
     };
-    return (React.createElement(Modal, null,
+    return (React.createElement(Modal, { id: id },
         React.createElement(Cross, { onClick: handleClick }, "X"),
         React.createElement(Modalmsg, null,
             React.createElement("p", null, text))));

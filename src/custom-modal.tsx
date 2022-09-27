@@ -3,7 +3,8 @@ import React from 'react';
 import styled from 'styled-components'
 
 interface IProps {
-  text: string
+  text: string,
+  id: string
 }
 
 const Modalmsg = styled.div`
@@ -41,7 +42,7 @@ const Modal = styled.div`
   height: 200px;
 `
 
-export const CustomModal = ({text} : IProps) : ReactElement => {  
+export const CustomModal = ({text, id} : IProps ) : ReactElement => {  
   
   const handleClick = (e : React.MouseEvent) : void => {
     const target = e.target as HTMLDivElement
@@ -49,7 +50,7 @@ export const CustomModal = ({text} : IProps) : ReactElement => {
   };
 
   return (
-    <Modal>
+    <Modal id={id}>
       <Cross onClick={handleClick}>X</Cross>
       <Modalmsg><p>{text}</p></Modalmsg>
     </Modal>
