@@ -1,58 +1,103 @@
-import { ReactElement } from 'react';
-import React from 'react';
-import styled from 'styled-components'
+import React, { useEffect } from 'react';
+import { useRef } from 'react';
+import styled from 'styled-components';
 
-interface IProps {
+const Momodal = styled.div`
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  height: 300px;
+  background: #fff;
+  z-index: 2;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px 3px #000;
+  .icon{
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: #4d9b3c;
+    img{
+      position : relative;
+      width: 50%;
+      object-fit: cover;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%)
+    }
+  }
+  button{
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    color:#fff;
+    background: #4d9b3c;
+    border:none;
+    width: 50%;
+    height: 10%;
+    bottom: 10px;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    &:hover{
+      background: #000000c2;
+    }
+  }
+  p{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 35%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+  .failureRegistered{
+    background: #9f1313;
+  }
+  .successFullyRegistred{
+    background : #4d9b3c
+  }
+`
+const Block = styled.div`
+  position: absolute;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+  background: #0000007a;
+  z-index: 1;
+`
+const check = './assets/check.svg'
+const failure = './assets/failure.svg'
+
+interface IProps{
   text: string,
-  id: string
+  id: string,
+  success: boolean,
+  icon: string
 }
 
-const Modalmsg = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #56a18a;
-  height: 190px;
-  width: 290px;
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  text-align: center;
-  border-radius: 10px;
-`
+export const CustomModal = ({text, id, success, icon} : IProps) => {
+  const container : any = useRef();
 
-const Cross = styled.div`
-  z-index: 1;
-  right: -275px;
-  top: 5px;
-  cursor: pointer;
-  align-self: flex-start;
-  position: relative;
-`
-
-const Modal = styled.div`
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px 2px #072e22;
-  position: absolute;
-  color: #fff;
-  top: 40vh;
-  left: 42.16%;
-  background-color: #072e22;
-  width: 300px;
-  height: 200px;
-`
-
-export const CustomModal = ({text, id} : IProps ) : ReactElement => {  
-  
   const handleClick = (e : React.MouseEvent) : void => {
-    const target = e.target as HTMLDivElement
-    target.parentElement!.style.display = 'none'
-  };
+    e.preventDefault();
+    container.current.style.display = 'none';
+  }
 
   return (
-    <Modal id={id}>
-      <Cross onClick={handleClick}>X</Cross>
-      <Modalmsg><p>{text}</p></Modalmsg>
-    </Modal>
+    <Block ref={container} id={id}>
+      <Momodal>
+        <div className={success ? 'icon successFullyRegistred' : 'icon failureRegistered'}>
+          <img src={icon} alt="icon modal" />
+        </div>
+        <p>{text}</p>
+        <button className={success ?  'successFullyRegistred' : 'failureRegistered'} onClick={(e) => handleClick(e)}>Ok</button>
+      </Momodal>
+    </Block>
   );
-};
+}
