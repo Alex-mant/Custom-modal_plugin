@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRef } from 'react';
 import styled from 'styled-components';
 
-const Momodal = styled.div`
+const Modal = styled.div`
   position: absolute;
   top: 45%;
   left: 50%;
@@ -71,8 +71,6 @@ const Block = styled.div`
   background: #0000007a;
   z-index: 1;
 `
-const check = './assets/check.svg'
-const failure = './assets/failure.svg'
 
 interface IProps{
   text: string,
@@ -91,13 +89,13 @@ export const CustomModal = ({text, id, success, icon} : IProps) => {
 
   return (
     <Block ref={container} id={id}>
-      <Momodal>
+      <Modal>
         <div className={success ? 'icon successFullyRegistred' : 'icon failureRegistered'}>
           <img src={icon} alt="icon modal" />
         </div>
         <p>{text}</p>
         <button className={success ?  'successFullyRegistred' : 'failureRegistered'} onClick={(e) => handleClick(e)}>Ok</button>
-      </Momodal>
+      </Modal>
     </Block>
   );
 }
