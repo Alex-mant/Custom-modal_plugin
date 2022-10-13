@@ -2,7 +2,7 @@
 
 [![Downloads](https://raw.githubusercontent.com/Alex-mant/Custom-modal_plugin/4d1489e31ec9ddbb9e6ef4d786695e21ae193ca1/src/assets/downloadBadge.svg)](https://npmjs.org/package/@alexandre_m/custom-modal)
 
-A simple and reusable Modal component for REACT ([Demo](https://reactdatepicker.com/))
+A simple and reusable Modal component for REACT
 
 ![](https://github.com/Alex-mant/Custom-modal_plugin/blob/master/src/assets/preview.png?raw=true)
 ![](https://github.com/Alex-mant/Custom-modal_plugin/blob/master/src/assets/preview2.png?raw=true)
