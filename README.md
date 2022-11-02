@@ -34,6 +34,8 @@ yarn add @alexandre_m/custom-modal
 ## Configuration
 ### You can call the modal as a usual component
 ![](https://github.com/Alex-mant/Custom-modal_plugin/blob/master/src/assets/exampleCall1.png?raw=true)
+### Here is the plugin code 
+![](https://github.com/Alex-mant/Custom-modal_plugin/blob/master/src/assets/pluginImg.png?raw=true)
 
 ### Type of props: 
 
@@ -45,6 +47,10 @@ yarn add @alexandre_m/custom-modal
         icon: string
     }
 ```
+
+### Style:
+    To change the style in a simple way use the "SCSS"
+    with nesting from the id you choose.
 
 
 ## License

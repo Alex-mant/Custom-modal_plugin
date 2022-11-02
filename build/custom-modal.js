@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRef } from 'react';
 import styled from 'styled-components';
-const Momodal = styled.div `
+
+const Momodal = styled.div`
   position: absolute;
   top: 45%;
   left: 50%;
@@ -61,7 +62,7 @@ const Momodal = styled.div `
     background : #4d9b3c
   }
 `;
-const Block = styled.div `
+const Block = styled.div`
   position: absolute;
   left:0;
   top:0;
@@ -70,15 +71,15 @@ const Block = styled.div `
   background: #0000007a;
   z-index: 1;
 `;
-const check = './assets/check.svg';
-const failure = './assets/failure.svg';
+
 export const CustomModal = ({ text, id, success, icon }) => {
     const container = useRef();
     const handleClick = (e) => {
         e.preventDefault();
         container.current.style.display = 'none';
     };
-    return (React.createElement(Block, { ref: container, id: id },
+    return (
+      React.createElement(Block, { ref: container, id: id },
         React.createElement(Momodal, null,
             React.createElement("div", { className: success ? 'icon successFullyRegistred' : 'icon failureRegistered' },
                 React.createElement("img", { src: icon, alt: "icon modal" })),

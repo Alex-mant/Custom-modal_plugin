@@ -1,6 +1,6 @@
 {
-  "name": "@alexandre_m/custom-modal",
-  "version": "1.1.5",
+  "name": "@alexandre_m/react-modal",
+  "version": "0.0.2",
   "description": "This package was created for educational purposes only",
   "main": "index.js",
   "scripts": {},
